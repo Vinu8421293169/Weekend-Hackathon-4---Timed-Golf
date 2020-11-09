@@ -3,6 +3,7 @@ import "../styles/App.css";
 const App = () => {
   let x = 0;
   let y = 0;
+  let t = 0;
   let interval;
   const [time, setTime] = useState(0);
   const [ballPosition, setBallPosition] = useState({ top: x, left: y });
@@ -20,7 +21,10 @@ const App = () => {
   };
 
   const startGame = () => {
-    interval = setInterval(() => setTime(time + 1), 1000);
+    interval = setInterval(() => {
+      t += 1;
+      return setTime(t);
+    }, 1000);
     window.addEventListener("keydown", (el) => handleKeydown(el));
   };
 
